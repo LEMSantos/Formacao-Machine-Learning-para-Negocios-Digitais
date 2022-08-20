@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  jupyter_lab:
+    container_name: jupyter_lab_2
+    build:
+      context: .
+      dockerfile: docker/jupyter.Dockerfile
+    ports:
+      - "10000:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+    volumes:
+      - .:/home
